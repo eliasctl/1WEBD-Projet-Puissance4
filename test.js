@@ -1,3 +1,4 @@
+// tableau qui contient les états du jeux | Ok
 let etatJeux = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
@@ -6,6 +7,7 @@ let etatJeux = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
 ];
+// liste des cellules du damier | Ok
 let damier = [
   document.querySelectorAll("#row-1"),
   document.querySelectorAll("#row-2"),
@@ -16,46 +18,47 @@ let damier = [
   document.querySelectorAll("#row-7"),
 ];
 
-// pour chaque ensemble de colones X du damier
-damier.forEach((row) => {
-  // pour chaque colone X des ensembles de colones
-  row.forEach((element) => {
-    // pour chaque cellule de la colone X
-    element.addEventListener("click", (event) => {
-      let line = event.target.parentElement.id;
-      let row = element.id.split("-")[1] - 1;
-      let pose = isNothingUnder(line, row);
-
-      // debug
-      console.log("ligne : " + line + " colonne : " + row);
-
-      etatJeux[pose][row] = 1;
-      syncroTab(element);
-    });
-  });
-});
-
-// fonction qui synchronise le tableau et le damier
+// fonction qui synchronise le tableau et le damier | Ok
 function syncroTab(cell) {
   let row = cell.parentElement.id;
-  let line = cell.id.split("-")[1] - 1;
-  if (etatJeux[row][line] === 1) {
+  let colone = cell.id.split("-")[1] - 1;
+  if (etatJeux[row][colone] === 1) {
     cell.style.backgroundColor = "blue";
   } else {
     cell.style.backgroundColor = "black";
   }
 }
 
-// fonction qui renvoie l'indice de la première ligne en dessous ou il y a un pion
-function isNothingUnder(row, line) {
-  let i = 0;
-  while (i < 6) {
-    if (etatJeux[i][line] === 1) {
-      console.log("isNothingUnder : " + i - 1);
+// fonction qui renvoie l'indice de la première colone en dessous ou il y a un pion
+function isNothingUnder(colone) {
+  // on parcours le tableau de haut en bas
+  for (let i = 0; i < 7; i++) {
+    // quand on trouve une case pleine on renvoie l'indice de la case juste avant
+    console.log(etatJeux[i][colone]);
+    if (etatJeux[colone][i] === 1) {
       return i - 1;
     }
-    i++;
+    return 0;
   }
-  console.log("isNothingUnder : " + i - 1);
-  return i - 1;
 }
+
+// pour chaque ensemble de lignes du damier
+damier.forEach((row) => {
+  // pour chaque element dans la ligne
+  row.forEach((element) => {
+    // lorsqu'on clique sur une cellule
+    element.addEventListener("click", (event) => {
+      let colone = event.target.parentElement.id; // renvoie 0,..,5
+      let row = element.id.split("-")[1] - 1; // renvoie 0,..,6
+      // let newColone = isNothingUnder(colone); // renvoie l'indice de la première colone en dessous ou il y a un pion
+      etatJeux[row][colone] = 1; // modifie le tableau en fonction de la cellule cliquée
+      syncroTab(element); // synchronise le tableau et le damier
+
+      // // debug
+      // console.log("colone : " + colone);
+      // console.log("newColone : " + newColone);
+      // console.log("row : " + row);
+      // console.log("etatJeux : " + etatJeux);
+    });
+  });
+});

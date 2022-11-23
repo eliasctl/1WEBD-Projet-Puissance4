@@ -3,11 +3,11 @@ body {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  background-color: #000000;
+  background-color: black;
 }
 
 h1 {
-  color: #ffffff;
+  color: white;
 }
 
 .board {
@@ -16,9 +16,9 @@ h1 {
 }
 
 .board td {
+  border: 2px solid white;
   height: 100px;
   width: 100px;
-  border: 2px solid #ffffff;
   cursor: pointer;
   font-size: 3rem;
 }

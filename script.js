@@ -1,6 +1,4 @@
-// variables
-let enter = false;
-let rowCounter = 0;
+// tableau qui contient les états du jeux | Ok
 let etatJeux = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
@@ -9,6 +7,7 @@ let etatJeux = [
   [0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0],
 ];
+// liste des cellules du damier | Ok
 let damier = [
   document.querySelectorAll("#row-1"),
   document.querySelectorAll("#row-2"),
@@ -19,49 +18,39 @@ let damier = [
   document.querySelectorAll("#row-7"),
 ];
 
-// pour chaque ensemble de colones X du damier
+// fonction qui synchronise le tableau et le damier | Ok
+function syncroTab(cell) {
+  let row = cell.parentElement.id;
+  let colone = cell.id.split("-")[1] - 1;
+  if (etatJeux[row][colone] === 1) {
+    cell.style.backgroundColor = "blue";
+  } else {
+    cell.style.backgroundColor = "black";
+  }
+}
+
+// fonction qui renvoie l'indice de la première colone en dessous ou il y a un pion
+function isNothingUnder(colone) {
+  return colone;
+}
+
+// pour chaque ensemble de colones du damier
 damier.forEach((row) => {
-  // pour chaque colone X des ensembles de colones
+  // pour chaque element dans la colone
   row.forEach((element) => {
-    // pour chaque cellule de la colone X
-    element.addEventListener("mouseover", () => {
-      row.forEach((cell) => {
-        // quand on passe la souris sur une cellule, on change la couleur
-        //  de toutes les cellules de la ligne
-        // si la cellule est rouge on la laisse rouge
-        // sinon on la met en gris
-        if (cell.style.backgroundColor === "blue") {
-          cell.style.backgroundColor = "blue";
-        } else {
-          cell.style.backgroundColor = "grey";
-        }
-      });
-    });
-    element.addEventListener("mouseout", () => {
-      row.forEach((cell) => {
-        // quand on sort de la cellule
-        // si la cellule est différente de gris on la met en rouge
-        // sinon on la met en noir
-        if (cell.style.backgroundColor !== "grey") {
-          cell.style.backgroundColor = "blue";
-        } else {
-          cell.style.backgroundColor = "black";
-        }
-      });
-    });
-    element.addEventListener("click", () => {
-      row.forEach((cell) => {
-        // quand on clique sur une cellule on renvois la celllule la plus basse vide
-        // si la cellule est rouge on la laisse rouge
-        // sinon on la met en bleu
-        if (cell.style.backgroundColor === "blue") {
-          cell.style.backgroundColor = "blue";
-        }
-        if (cell.style.backgroundColor === "black") {
-          cell.style.backgroundColor = "blue";
-        }
-      });
-      console.log(etatJeux);
+    // lorsqu'on clique sur une cellule
+    element.addEventListener("click", (event) => {
+      let colone = event.target.parentElement.id; // renvoie 0,..,5
+      let row = element.id.split("-")[1] - 1; // renvoie 0,..,6
+      let newColone = isNothingUnder(colone); // renvoie l'indice de la première colone en dessous ou il y a un pion
+      etatJeux[newColone][row] = 1; // modifie le tableau en fonction de la cellule cliquée
+      syncroTab(element); // synchronise le tableau et le damier
+
+      // debug
+      console.log("colone : " + colone);
+      console.log("newColone : " + newColone);
+      console.log("row : " + row);
+      console.log("etatJeux : " + etatJeux);
     });
   });
 });
