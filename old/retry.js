@@ -1,5 +1,3 @@
-// je suis une fleur
-
 function createBorar(row, column) {
   let table = document.createElement("table");
   for (let i = 0; i < row; i++) {

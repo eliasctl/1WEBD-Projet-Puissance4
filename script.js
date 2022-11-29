@@ -1,15 +1,16 @@
-document.body.onload = addElement;
+row = prompt("combien de colones ?");
+ligne = prompt("combien de lignes ?");
 
-function addElement() {
-  // crée un nouvel élément div
-  var newDiv = document.createElement("div");
-  // et lui donne un peu de contenu
-  var newContent = document.createTextNode("Hi there and greetings!");
-  // ajoute le nœud texte au nouveau div créé
-  newDiv.appendChild(newContent);
+row = 5;
+ligne = 5;
 
-  // ajoute le nouvel élément créé et son contenu dans le DOM
-  var currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-  console.log("je suis une fleur");
+let table = document.createElement("table");
+for (let i = 0; i < row; i++) {
+  let tr = table.appendChild(document.createElement("tr"));
+  console.log("on cree un tr");
+  for (let j = 0; j < column; j++) {
+    let td = tr.appendChild(document.createElement("td"));
+    console.log("on cree un td");
+  }
 }
+document.td.innerHTML = "fleur";
