@@ -2,9 +2,10 @@ body {
   background-color: #9b9b9b;
   color: #ffffff;
 }
+
 a {
-  background-color: #ff0000;
-  color: #ffffff;
+  background-color: red;
+  color: black;
   border-radius: 20px;
   padding: 20px;
   text-decoration: none;
@@ -12,12 +13,13 @@ a {
 }
 
 #bleu {
-  background-color: #0000ff;
-  color: #ffffff;
+  background-color: blue;
+  color: black;
 }
+
 #jaune {
-  background-color: #ffff00;
-  color: #000000;
+  background-color: yellow;
+  color: black;
 }
 
 td {
