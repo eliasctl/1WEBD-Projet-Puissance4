@@ -1,5 +1,7 @@
 row = prompt("combien de colones ?");
 ligne = prompt("combien de lignes ?");
+joueur1 = prompt("nom du joueur 1");
+joueur2 = prompt("nom du joueur 2");
 
 row = 5;
 ligne = 5;
