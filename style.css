@@ -2,3 +2,40 @@ body {
   background-color: #9b9b9b;
   color: #ffffff;
 }
+a {
+  background-color: #ff0000;
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+#bleu {
+  background-color: #0000ff;
+  color: #ffffff;
+}
+#jaune {
+  background-color: #ffff00;
+  color: #000000;
+}
+
+td {
+  width: 2cm;
+  height: 2cm;
+  margin: 0px;
+  padding: 0px;
+  border: 2px blue inset;
+  border-radius: 2cm;
+  background-color: white;
+}
+
+tr {
+  width: 2cm;
+  height: 2cm;
+  margin: 0px;
+  padding: 0px;
+  border: 2px blue inset;
+  border-radius: 2cm;
+  background-color: white;
+}
