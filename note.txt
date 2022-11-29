@@ -1,0 +1,5 @@
+- affichage du tableau dans la page jeux
+- boutton home dans la page jeux.html
+- pages de regles
+- page de score
+- 
