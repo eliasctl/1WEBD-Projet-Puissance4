@@ -31,34 +31,20 @@ function syncroTab(cell) {
 
 // fonction qui renvoie l'indice de la première colone en dessous ou il y a un pion
 function isNothingUnder(colone) {
-  // on parcours le tableau de haut en bas
-  for (let i = 0; i < 7; i++) {
-    // quand on trouve une case pleine on renvoie l'indice de la case juste avant
-    console.log(etatJeux[i][colone]);
-    if (etatJeux[colone][i] === 1) {
-      return i - 1;
-    }
-    return 0;
-  }
+  return colone;
 }
 
-// pour chaque ensemble de lignes du damier
+// pour chaque ensemble de colones du damier
 damier.forEach((row) => {
-  // pour chaque element dans la ligne
+  // pour chaque element dans la colone
   row.forEach((element) => {
     // lorsqu'on clique sur une cellule
     element.addEventListener("click", (event) => {
       let colone = event.target.parentElement.id; // renvoie 0,..,5
       let row = element.id.split("-")[1] - 1; // renvoie 0,..,6
-      // let newColone = isNothingUnder(colone); // renvoie l'indice de la première colone en dessous ou il y a un pion
-      etatJeux[row][colone] = 1; // modifie le tableau en fonction de la cellule cliquée
+      let newColone = isNothingUnder(colone); // renvoie l'indice de la première colone en dessous ou il y a un pion
+      etatJeux[newColone][row] = 1; // modifie le tableau en fonction de la cellule cliquée
       syncroTab(element); // synchronise le tableau et le damier
-
-      // // debug
-      // console.log("colone : " + colone);
-      // console.log("newColone : " + newColone);
-      // console.log("row : " + row);
-      // console.log("etatJeux : " + etatJeux);
     });
   });
 });
