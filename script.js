@@ -15,4 +15,3 @@ for (let i = 0; i < row; i++) {
 document.body.appendChild(table);
 
 console.log(tabJeux);
-console.log(row, ligne);
