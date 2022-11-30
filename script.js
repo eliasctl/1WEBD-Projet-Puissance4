@@ -1,8 +1,8 @@
 let tabJeux = [];
 let joueur = 1;
 
-row = prompt("combien de colones ?");
-ligne = row++;
+let ligne = prompt("combien de colones ?");
+let row = ligne++;
 
 let table = document.createElement("table");
 for (let i = 0; i < row; i++) {
@@ -18,6 +18,12 @@ document.body.appendChild(table);
 let tr = document.getElementsByTagName("tr");
 for (let i = 0; i < tr.length; i++) {
   tr[i].addEventListener("click", function () {
-    console.log(i + 1);
+    for (let j = 0; j < tabJeux[i].length; j++) {
+      if (tabJeux[i][j] === 0) {
+        tabJeux[i][j] = joueur;
+        break;
+      }
+    }
+    console.log(tabJeux);
   });
 }

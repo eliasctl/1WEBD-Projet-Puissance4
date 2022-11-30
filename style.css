@@ -36,4 +36,5 @@ table {
   background-color: blue;
   transform: rotate(270deg);
   padding: 20px;
+  margin: 30px;
 }
