@@ -1,6 +1,6 @@
 body {
   background-color: #9b9b9b;
-  color: #ffffff;
+  color: white;
 }
 
 a {
@@ -27,17 +27,13 @@ td {
   height: 2cm;
   margin: 0px;
   padding: 0px;
-  border: 2px blue inset;
-  border-radius: 2cm;
+  border: 2px;
+  border-radius: 5cm;
   background-color: white;
 }
 
-tr {
-  width: 2cm;
-  height: 2cm;
-  margin: 0px;
-  padding: 0px;
-  border: 2px blue inset;
-  border-radius: 2cm;
-  background-color: white;
+table {
+  background-color: blue;
+  transform: rotate(90deg);
+  padding: 20px;
 }
