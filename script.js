@@ -15,3 +15,8 @@ for (let i = 0; i < row; i++) {
 document.body.appendChild(table);
 
 console.log(tabJeux);
+console.log(tabJeux.length);
+for (let i = 0; i < tabJeux.length; i++) {
+  tabJeux[i][0] = 1;
+  console.log(tabJeux[i]);
+}
