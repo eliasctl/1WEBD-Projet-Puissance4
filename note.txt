@@ -2,4 +2,3 @@
 - boutton home dans la page jeux.html
 - pages de regles
 - page de score
-- 
