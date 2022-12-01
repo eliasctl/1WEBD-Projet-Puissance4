@@ -1,6 +1,6 @@
 body {
-  background-color: #9b9b9b;
-  color: white;
+  background-color: #ffffc8;
+  color: black;
 }
 
 a {
@@ -36,5 +36,13 @@ table {
   background-color: blue;
   transform: rotate(270deg);
   padding: 20px;
-  margin: 30px;
+  margin: auto;
+}
+
+#bigDiv {
+  align-items: center;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
 }

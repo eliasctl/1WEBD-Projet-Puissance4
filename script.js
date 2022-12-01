@@ -1,3 +1,9 @@
+// pour le timer
+const heures = document.querySelector("#heures");
+const minutes = document.querySelector("#minutes");
+const seconde = document.querySelector("#secondes");
+const milli = document.querySelector("#milliseconds");
+
 // variables
 let tabJeux = [];
 let joueur = Math.floor(Math.random());
@@ -45,7 +51,7 @@ for (let i = 0; i < tr.length; i++) {
     console.log(tabJeux);
     if (weHaveAWinner() === true) {
       alert("vous avez gagné !!");
-      localStorage.setItem("winer", joueur);
+      localStorage.setItem("winner", joueur);
     }
   });
 }
