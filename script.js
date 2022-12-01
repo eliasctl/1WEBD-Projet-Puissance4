@@ -2,7 +2,12 @@
 let tabJeux = [];
 let joueur = 1;
 let ligne = prompt("combien de colones ?");
+let joueur1 = prompt("quelle st le nom du joueur 1 ?");
+let joueur2 = prompt("quelle st le nom du joueur 2 ?");
 let row = ligne++;
+
+localStorage.setItem("joueur 1", joueur1);
+localStorage.setItem("joueur 2", joueur2);
 
 // création du tableau
 let table = document.createElement("table");
@@ -33,7 +38,7 @@ for (let i = 0; i < tr.length; i++) {
     }
     updateDom();
     console.log(tabJeux);
-    if (weHaveAWinner === true) {
+    if (weHaveAWinner() === true) {
       alert("vous avez gagné !!");
     }
   });
@@ -64,7 +69,7 @@ function weHaveAWinner() {
         tabJeux[i][j] === tabJeux[i + 2][j] &&
         tabJeux[i][j] === tabJeux[i + 3][j]
       ) {
-        return True;
+        return true;
       }
     }
   }
@@ -78,7 +83,7 @@ function weHaveAWinner() {
         tabJeux[i][j] === tabJeux[i + 2][j] &&
         tabJeux[i][j] === tabJeux[i + 3][j]
       ) {
-        return True;
+        return true;
       }
     }
   }
@@ -92,7 +97,7 @@ function weHaveAWinner() {
         tabJeux[i][j] === tabJeux[i + 2][j + 2] &&
         tabJeux[i][j] === tabJeux[i + 3][j + 3]
       ) {
-        return tabJeux[i][j];
+        return true;
       }
     }
   }
