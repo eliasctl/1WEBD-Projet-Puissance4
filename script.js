@@ -1,7 +1,12 @@
 // variables
 let tabJeux = [];
-let joueur = 1;
-let ligne = prompt("combien de colones ?");
+let joueur = Math.floor(Math.random());
+let ligne = 0;
+
+while (ligne < 5 || ligne > 15) {
+  ligne = prompt("combien de colones ?");
+}
+
 let joueur1 = prompt("quelle st le nom du joueur 1 ?");
 let joueur2 = prompt("quelle st le nom du joueur 2 ?");
 let row = ligne++;
@@ -40,6 +45,7 @@ for (let i = 0; i < tr.length; i++) {
     console.log(tabJeux);
     if (weHaveAWinner() === true) {
       alert("vous avez gagné !!");
+      localStorage.setItem("winer", joueur);
     }
   });
 }
