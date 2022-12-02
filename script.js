@@ -8,15 +8,19 @@ const seconde = document.querySelector("#secondes");
 let tabJeux = [];
 let joueur = Math.round(Math.random());
 let ligne = 0;
+let row = 0;
 
 while (ligne < 5 || ligne > 15) {
-  ligne = prompt("combien de colones ?");
+  ligne = prompt("combien de lignes ?");
 }
+while (row < 5 || row > 15) {
+  row = prompt("combien de colones ?");
+}
+
 
 // On demande le nom des joueurs (cas où on aurait eu l'api pour ensuite les mettres dans le tableau des victoires)
 let joueur1 = prompt("quelle st le nom du joueur 1 ?");
 let joueur2 = prompt("quelle st le nom du joueur 2 ?");
-let row = ligne++;
 
 localStorage.setItem("joueur 1", joueur1);
 localStorage.setItem("joueur 2", joueur2);
