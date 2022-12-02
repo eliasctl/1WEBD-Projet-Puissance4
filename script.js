@@ -13,6 +13,7 @@ while (ligne < 5 || ligne > 15) {
   ligne = prompt("combien de colones ?");
 }
 
+// On demande le nom des joueurs (cas où on aurait eu l'api pour ensuite les mettres dans le tableau des victoires)
 let joueur1 = prompt("quelle st le nom du joueur 1 ?");
 let joueur2 = prompt("quelle st le nom du joueur 2 ?");
 let row = ligne++;
@@ -86,7 +87,6 @@ function updateDom() {
 }
 
 // fonction qui verifie si il y a un gagniant
-// ne marche pas
 function weHaveAWinner() {
   // vérifier verticalement
   for (let i = 0; i < tabJeux.length - 3; i++) {
@@ -120,7 +120,7 @@ function weHaveAWinner() {
   for (let i = 0; i < tabJeux.length - 3; i++) {
     for (let j = 0; j < tabJeux[i].length - 3; j++) {
       if (
-        tabJeux[i][j] !== 0 &&
+        tabJeux[i][j] !== 0 && i+3<= ligne && j+3 <=row &&
         tabJeux[i][j] === tabJeux[i + 1][j + 1] &&
         tabJeux[i][j] === tabJeux[i + 2][j + 2] &&
         tabJeux[i][j] === tabJeux[i + 3][j + 3]
@@ -134,7 +134,7 @@ function weHaveAWinner() {
   for (let i = 0; i < tabJeux.length - 3; i++) {
     for (let j = 0; j < tabJeux[i].length - 3; j++) {
       if (
-        tabJeux[i][j] !== 0 &&
+        tabJeux[i][j] !== 0 && i-3>=0 && j+3 <=row &&
         tabJeux[i][j] === tabJeux[i - 1][j + 1] &&
         tabJeux[i][j] === tabJeux[i - 2][j + 2] &&
         tabJeux[i][j] === tabJeux[i - 3][j + 3]
