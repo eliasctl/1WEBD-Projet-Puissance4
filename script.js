@@ -1,12 +1,12 @@
+// Projet puissance 4
+
 // pour le timer
-const heures = document.querySelector("#heures");
 const minutes = document.querySelector("#minutes");
 const seconde = document.querySelector("#secondes");
-const milli = document.querySelector("#milliseconds");
 
 // variables
 let tabJeux = [];
-let joueur = Math.floor(Math.random());
+let joueur = Math.round(Math.random());
 let ligne = 0;
 
 while (ligne < 5 || ligne > 15) {
@@ -57,6 +57,19 @@ for (let i = 0; i < tr.length; i++) {
       localStorage.setItem("winner", joueur);
     }
   });
+}
+
+function startTimer() {
+  let sec = 0;
+  let min = 0;
+  setInterval(function temps() {
+    seconde.textContent = String(min++).padStart(2, "0");
+    minutes.textContent = String(sec).padStart(2, "0");
+    if (min > 60) {
+      min++;
+      sec = 0;
+    }
+  }, 1000);
 }
 
 // fonction qui met à jour le dom
@@ -132,15 +145,4 @@ function weHaveAWinner() {
   }
 
   return false;
-}
-
-function startTimer() {
-  setInterval(function temps() {
-    const maintenant = new Date();
-
-    heures.textContent = String(maintenant.getHours()).padStart(2, "0");
-    minutes.textContent = String(maintenant.getMinutes()).padStart(2, "0");
-    seconde.textContent = String(maintenant.getSeconds()).padStart(2, "0");
-    milli.textContent = String(maintenant.getMilliseconds()).padStart(3, "0");
-  }, 1);
 }
