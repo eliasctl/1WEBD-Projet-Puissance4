@@ -20,6 +20,9 @@ let row = ligne++;
 localStorage.setItem("joueur 1", joueur1);
 localStorage.setItem("joueur 2", joueur2);
 
+// on demare le timer
+startTimer();
+
 // création du tableau
 let table = document.createElement("table");
 for (let i = 0; i < row; i++) {
@@ -85,21 +88,21 @@ function weHaveAWinner() {
       }
     }
   }
-  
+
   // vérifier horizontale
   for (let i = 0; i < tabJeux.length - 3; i++) {
     for (let j = 0; j < tabJeux[i].length; j++) {
       if (
         tabJeux[i][j] !== 0 &&
-        tabJeux[i][j] === tabJeux[i][j+1] &&
-        tabJeux[i][j] === tabJeux[i][j+2] &&
-        tabJeux[i][j] === tabJeux[i][j+3]
+        tabJeux[i][j] === tabJeux[i][j + 1] &&
+        tabJeux[i][j] === tabJeux[i][j + 2] &&
+        tabJeux[i][j] === tabJeux[i][j + 3]
       ) {
         return true;
       }
     }
   }
-  
+
   // vérifier en diagonale BG - HD
   for (let i = 0; i < tabJeux.length - 3; i++) {
     for (let j = 0; j < tabJeux[i].length - 3; j++) {
@@ -113,7 +116,7 @@ function weHaveAWinner() {
       }
     }
   }
-  
+
   // vérifier en diagonale BD - HG
   for (let i = 0; i < tabJeux.length - 3; i++) {
     for (let j = 0; j < tabJeux[i].length - 3; j++) {
@@ -127,6 +130,17 @@ function weHaveAWinner() {
       }
     }
   }
-  
+
   return false;
+}
+
+function startTimer() {
+  setInterval(function temps() {
+    const maintenant = new Date();
+
+    heures.textContent = String(maintenant.getHours()).padStart(2, "0");
+    minutes.textContent = String(maintenant.getMinutes()).padStart(2, "0");
+    seconde.textContent = String(maintenant.getSeconds()).padStart(2, "0");
+    milli.textContent = String(maintenant.getMilliseconds()).padStart(3, "0");
+  }, 1);
 }
